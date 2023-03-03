@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.chonglou52.top/posts/3c098e9e.html</loc>
+    
+    <lastmod>2023-03-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.chonglou52.top/linux/index.html</loc>
+    
+    <lastmod>2023-03-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.chonglou52.top/site/census/index.html</loc>
+    
+    <lastmod>2023-03-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.chonglou52.top/life/movies/index.html</loc>
     
     <lastmod>2023-03-03</lastmod>
@@ -48,15 +75,6 @@
   
   <url>
     <loc>https://www.chonglou52.top/personal/about/index.html</loc>
-    
-    <lastmod>2023-03-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.chonglou52.top/site/census/index.html</loc>
     
     <lastmod>2023-03-03</lastmod>
     
@@ -148,7 +166,7 @@
   <url>
     <loc>https://www.chonglou52.top/posts/2013454d.html</loc>
     
-    <lastmod>2022-10-23</lastmod>
+    <lastmod>2023-02-25</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -177,10 +195,24 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://www.chonglou52.top/tags/linux%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
     <loc>https://www.chonglou52.top/categories/%E6%BC%94%E7%A4%BA/</loc>
+    <lastmod>2023-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.chonglou52.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
