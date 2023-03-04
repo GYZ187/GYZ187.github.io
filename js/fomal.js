@@ -303,7 +303,7 @@ document.addEventListener('pjax:complete', getWeibo);
 document.addEventListener('DOMContentLoaded', getWeibo);
 
 function getWeibo() {
-  fetch('https://weibo-top-api11.vercel.app/api').then(data => data.json()).then(data => {  // 这里要写上你的API!!!
+  fetch('https://api1.chonglou52.top/api').then(data => data.json()).then(data => {
     let html = '<style>.weibo-new{background:#ff3852}.weibo-hot{background:#ff9406}.weibo-jyzy{background:#ffc000}.weibo-recommend{background:#00b7ee}.weibo-adrecommend{background:#febd22}.weibo-friend{background:#8fc21e}.weibo-boom{background:#bd0000}.weibo-topic{background:#ff6f49}.weibo-topic-ad{background:#4dadff}.weibo-boil{background:#f86400}#weibo-container{overflow-y:auto;-ms-overflow-style:none;scrollbar-width:none}#weibo-container::-webkit-scrollbar{display:none}.weibo-list-item{display:flex;flex-direction:row;justify-content:space-between;flex-wrap:nowrap}.weibo-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:auto}.weibo-num{float:right}.weibo-hotness{display:inline-block;padding:0 6px;transform:scale(.8) translateX(-3px);color:#fff;border-radius:8px}</style>'
     html += '<div class="weibo-list">'
     let hotness = {
@@ -1321,11 +1321,11 @@ var titleTime;
 document.addEventListener('visibilitychange', function () {
   if (document.hidden) {
     //离开当前页面时标签显示内容
-    document.title = '离开他，跟着我';
+    document.title = '💢你也跟本尊一样魔务缠身么！';
     clearTimeout(titleTime);
   } else {
     //返回当前页面时标签显示内容
-    document.title = '她偷走了我的心，却是为了她爱的人';
+    document.title = '🎈哼，这里不是凡人该来的地方！';
     //两秒后变回正常标题
     titleTime = setTimeout(function () {
       document.title = OriginTitile;
@@ -3130,10 +3130,10 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://tuchuang.voooe.cn/images/2023/03/02/wallhaven-72okre.jpg);
-    --darkmode-bg:url(https://tuchuang.voooe.cn/images/2023/03/02/wallhaven-z86w6w.jpg);
-    --mobileday-bg: url(https://tuchuang.voooe.cn/images/2023/03/02/wallhaven-kx892m.jpg);
-    --mobilenight-bg: url(https://tuchuang.voooe.cn/images/2023/03/02/wallhaven-1ppoev.png);
+    --default-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-72okre.jpg);
+    --darkmode-bg:url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-z86w6w.jpg);
+    --mobileday-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-kx892m.jpg);
+    --mobilenight-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-1ppoev.png);
   }`;
 }
 // 切换背景主函数
