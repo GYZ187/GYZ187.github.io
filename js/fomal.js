@@ -1113,7 +1113,7 @@ function changeMouseMode() {
 var now1 = new Date();
 
 function createtime1() {
-  var grt = new Date("08/09/2022 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  var grt = new Date("23/02/2023 00:00:00"); //此处修改你的建站时间或者网站上线时间
   now1.setTime(now1.getTime() + 250);
   var days = (now1 - grt) / 1000 / 60 / 60 / 24;
   var dnum = Math.floor(days);
@@ -3124,7 +3124,6 @@ let btstu = "url(http://api.btstu.cn/sjbz/?lx=suiji)";
 // unsplash随机 https://source.unsplash.com/random/1920x1080/daily (weekly)
 let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
 
-
 // 更换背景(自己的代码)
 if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
@@ -3132,8 +3131,8 @@ if (localStorage.getItem("blogbg") != undefined) {
   document.getElementById("defineBg").innerText = `:root{
     --default-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-72okre.jpg);
     --darkmode-bg:url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-z86w6w.jpg);
-    --mobileday-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-kx892m.jpg);
-    --mobilenight-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-1ppoev.png);
+    --mobileday-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/44.jpg);
+    --mobilenight-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/55.png);
   }`;
 }
 // 切换背景主函数
