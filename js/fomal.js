@@ -2831,65 +2831,6 @@ setInterval(() => {
 
 /*页脚计时器 end */
 
-//----------------------------------------------------------------
-
-/* fps检测 start */
-if (window.localStorage.getItem("fpson") == undefined || window.localStorage.getItem("fpson") == "1") {
-  var rAF = function () {
-    return (
-      window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      function (callback) {
-        window.setTimeout(callback, 1000 / 60);
-      }
-    );
-  }();
-  var frame = 0;
-  var allFrameCount = 0;
-  var lastTime = Date.now();
-  var lastFameTime = Date.now();
-  var loop = function () {
-    var now = Date.now();
-    var fs = (now - lastFameTime);
-    var fps = Math.round(1000 / fs);
-
-lastFameTime = now;
-// 不置 0，在动画的开头及结尾记录此值的差值算出 FPS
-allFrameCount++;
-frame++;
-
-if (now > 1000 + lastTime) {
-  var fps = Math.round((frame * 1000) / (now - lastTime));
-  if (fps <= 5) {
-    var kd = `<span style="color:#bd0000">卡成ppt🤢</span>`
-  } else if (fps <= 15) {
-    var kd = `<span style="color:red">电竞级帧率😖</span>`
-  } else if (fps <= 25) {
-    var kd = `<span style="color:orange">有点难受😨</span>`
-  } else if (fps < 35) {
-    var kd = `<span style="color:#9338e6">不太流畅🙄</span>`
-  } else if (fps <= 45) {
-    var kd = `<span style="color:#08b7e4">还不错哦😁</span>`
-  } else {
-    var kd = `<span style="color:#39c5bb">十分流畅🤣</span>`
-  }
-  document.getElementById("fps").innerHTML = `FPS:${fps} ${kd}`;
-  frame = 0;
-  lastTime = now;
-};
-
-rAF(loop);
-
-  }
-
-  loop();
-} else {
-  document.getElementById("fps").style = "display:none!important"
-}
-/* fps检测 end */
-
-//----------------------------------------------------------------
-
 /* 美化模块 start */
 
 // 更新版本需要每个用户都恢复一次默认设置
@@ -3012,20 +2953,6 @@ function setSnow() {
     document.getElementById("snow").style.display = "none";
     localStorage.setItem("snow", "none");
   }
-}
-
-
-// 帧率监测开关
-if (localStorage.getItem("fpson") == undefined) {
-  localStorage.setItem("fpson", "1");
-}
-function fpssw() {
-  if (document.getElementById("fpson").checked) {
-    localStorage.setItem("fpson", "1");
-  } else {
-    localStorage.setItem("fpson", "0");
-  }
-  setTimeout(reload, 600);
 }
 
 // 刷新窗口
@@ -3185,30 +3112,35 @@ let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
 
 // 更换背景(自己的代码)
 if (localStorage.getItem("blogbg") != undefined) {
-  setBg(localStorage.getItem("blogbg"));
-} else {
-  document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-72okre.jpg);
-    --darkmode-bg:url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-z86w6w.jpg);
-    --mobileday-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/44.jpg);
-    --mobilenight-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/55.png);
-  }`;
-}
-// 切换背景主函数
-function changeBg(s) {
-  // 自定义颜色框
-  defineColor = s.charAt(0) == "#" ? s : '#F4D88A';
-  setBg(s);
-  localStorage.setItem("blogbg", s);
-}
-// 设置背景属性
-function setBg(s) {
+  let curBg = localStorage.getItem("blogbg");
   document.getElementById("defineBg").innerText = `:root{
     --default-bg: ${s};
     --darkmode-bg: ${s};
     --mobileday-bg: ${s};
     --mobilenight-bg: ${s};
   }`;
+  changeBg(curBg);
+} else {
+    // 替换你自己的默认背景
+  document.getElementById("defineBg").innerText = `:root{
+    --default-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-72okre.jpg);
+    --darkmode-bg:url(https://tuchuang.voooe.cn/images/2023/03/04/wallhaven-z86w6w.jpg);
+    --mobileday-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/44.jpg);
+    --mobilenight-bg: url(https://tuchuang.voooe.cn/images/2023/03/04/55.png);  }`;
+}
+function changeBg(s) {
+  let bg = document.getElementById("web_bg");
+  if (s.charAt(0) == "#") {
+    bg.style.backgroundColor = s;
+    bg.style.backgroundImage = "none";
+    defineColor = s;
+  } else {
+    bg.style.backgroundImage = s
+    defineColor = '#F4D88A';
+  };
+  localStorage.setItem("blogbg", s);
+  localStorage.setItem("bing", "false");
+  if (document.getElementById("bingSet")) document.getElementById("bingSet").checked = false;
 }
 
 // 切换链接对应的背景(加入了链接检验与防抖)
@@ -3483,6 +3415,7 @@ function createWinbox() {
             </details>
 
 <br>
+
 <center><div style="font-size:1.2em;color:var(--theme-color);font-weight:bold;">------ ( •̀ ω •́ )y 到底啦 ------</div></center>
 <br>
 
