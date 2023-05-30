@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>无服务器部署自己的chatGPT</title>
+      <link href="/posts/74ac8dc8.html"/>
+      <url>/posts/74ac8dc8.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-说明">1.说明</h2><ul><li>注意：以下仅详细说明了<a href="https://github.com/Chanzhaoyu/chatgpt-web">Chanzhaoyu/chatgpt-web</a> + Railway 的搭建方案，其他教程见项目说明</li><li>经过笔者测试：对于该项目，<a href="https://dashboard.render.com/">Render</a>的 Docker 环境部署也是可以用的</li></ul><h2 id="2-文字版教程">2.文字版教程</h2><ul><li><p>前置条件</p><p>：</p><ol><li>需要一个 OPENAI 账号(chatGPT 账号)，或者有效的 API KEY，没有的话叫朋友借一个 key</li><li>需要一个国内的域名，没有的可以去<a href="https://www.vpsor.cn/">硅云</a>白嫖一个</li><li>需要有能够访问外国网站的能力(你懂的)</li></ol></li></ul><h3 id="2-1-Chanzhaoyu-chatgpt-web">2.1 Chanzhaoyu/chatgpt-web</h3><ul><li><p>开源地址：<a href="https://github.com/Chanzhaoyu/chatgpt-web"><strong>Chanzhaoyu/chatgpt-web</strong></a></p></li><li><p>示例图片：<br><a href="https://tuchuang.voooe.cn/images/2023/03/23/image.webp"><img src="https://tuchuang.voooe.cn/images/2023/05/29/chatgptweb.png" alt="img"></a></p></li><li><p>正式教程：</p><ol><li><p>进入<a href="https://github.com/Chanzhaoyu/chatgpt-web">Chanzhaoyu/chatgpt-web</a>，将点击右上角的<code>fork</code>，创建一个副本到自己的仓库(最好是 fork，到时候可以<code>sync fork</code>同步更新)，选择只 fork 主分支，此时自己的仓库应该有了一份项目副本；</p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/image.png" alt="img"></p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/image89dacf0eda6bf119.png" alt="img"></p></li><li><p>打开<a href="https://railway.app/">Railway</a>官网，注册并绑定自己的 Github 账户，然后选择右上角的<code>New Project</code>新建一个项目，从 Github 仓库中选出刚刚自己 fork 过来的项目，然后选择添加环境变量；</p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/imagee354030c89507c7c.png" alt="img"></p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/image1dbee00c3bafef34.png" alt="img"></p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/imagecfda541deb8578e8.png" alt="img"><img src="https://tuchuang.voooe.cn/images/2023/05/29/image80e5ba8aaf23fe2b.png" alt="img"></p></li><li><p>添加两个环境变量：<code>PORT</code>为<code>3002</code>；<code>OPENAI_API_KEY</code>到<a href="https://platform.openai.com/account/api-keys">OPENAI 控制台-查看 API_KEY</a>进行生成与获取，记住 API_KEY 只能看到一次，记住复制保存，不然要重新生成，将这里的 API_KEY 复制到 Railway 项目的环境变量中，然后保存就会自动触发新一轮部署；</p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/image8b3fb5d7f3eb49ee.png" alt="img"></p></li><li><p>添加自定义域名：分别进入<code>部署的项目</code>-&gt;<code>Settings</code>-&gt;<code>Domains</code>-&gt;<code>Custom Domain</code>输入自己拥有的域名，然后会生成要求解析的类型、名称和值，到自己对应的域名控制台添加相应的解析记录；</p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/imageac1013d0fbdfc9b2.png" alt="img"></p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/imagef12bd5763ed14a58.png" alt="img"></p></li><li><p>待域名解析生效后，进入自定义域名即可访问到自己部署的 chatGPT，可以看到自己的 key 是有余量的，因此最好不要被被人用，否则很快会消耗完额度(目前不知道会不会恢复)；</p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/image3493a547c1a3b3d3.png" alt="img"></p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/image2280bff876fd3fdb.png" alt="img"></p></li></ol></li></ul><h3 id="2-2-ourongxing-chatgpt-vercel">2.2 ourongxing/chatgpt-vercel</h3><ul><li><p>开源地址：<a href="https://github.com/ourongxing/chatgpt-vercel"><strong>ourongxing/chatgpt-vercel</strong></a></p></li><li><p>示例图片：</p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/image32c499e1eb49173b.png" alt="img"></p></li><li><p>正式教程：</p><ol><li>将项目 fork 到自己的仓库</li><li>注册<a href="https://vercel.com/dashboard">Vercel</a>并绑定自己的 Github 账号</li><li>部署刚刚 fork 过来的项目，环境变量只需要写<code>OPENAI_API_KEY</code>，其值的获取参考 2.1</li><li>部署完成后绑定自定义域名，访问自定义域即可到达 chatGPT</li></ol></li></ul><h3 id="2-3-ddiu8081-chatgpt-demo">2.3 ddiu8081/chatgpt-demo</h3><ul><li><p>开源地址：<a href="https://github.com/ddiu8081/chatgpt-demo"><strong>ddiu8081/chatgpt-demo</strong></a></p></li><li><p>示例图片：</p><p><img src="https://tuchuang.voooe.cn/images/2023/05/29/imagec47b8a6a0e98db51.png" alt="img"></p></li><li><p>正式教程：同 2.2</p></li></ul><h3 id="2-4-Yidadaa-ChatGPT-Next-Web-推荐">2.4 Yidadaa/ChatGPT-Next-Web(推荐)</h3><ul><li><p>本人强烈推荐这个项目，因为UI、交互、速度方面都是最好的，而且部署在Vercel非常简单！</p></li><li><p>开源地址：<a href="https://github.com/Yidadaa/ChatGPT-Next-Web">Yidadaa/ChatGPT-Next-Web</a></p></li><li><p>示例图片：</p><p><a href="https://tuchuang.voooe.cn/images/2023/05/29/image7afa7ac5f05d10c1.png"><img src="https://tuchuang.voooe.cn/images/2023/05/29/image7afa7ac5f05d10c1.png" alt="img"></a></p></li><li><p>正式教程：见开源文档，和2.2接近</p></li></ul><h2 id="3-福利🍀：chatGPT镜像站列表">3.福利🍀：chatGPT镜像站列表</h2><ul><li>开源地址：<ol><li><a href="https://github.com/xx025/carrot"><strong>xx025/carrot</strong></a></li><li><a href="https://github.com/LiLittleCat/awesome-free-chatgpt"><strong>LiLittleCat/awesome-free-chatgpt</strong></a></li></ol></li><li>这两个开源项目都收集了多个可用的chatGPT镜像站，大家可以自行摸索，总会找到能用的！</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> chatGPT部署 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>firewalld防火墙服务</title>
       <link href="/posts/482b0c22.html"/>
       <url>/posts/482b0c22.html</url>
